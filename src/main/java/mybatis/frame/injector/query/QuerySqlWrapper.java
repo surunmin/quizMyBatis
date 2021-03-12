@@ -3,7 +3,8 @@ package mybatis.frame.injector.query;
 import lombok.extern.slf4j.Slf4j;
 import mybatis.frame.annotations.Column;
 import mybatis.frame.function.SFuntion;
-import mybatis.frame.util.MyBatisStringPool;
+import mybatis.frame.injector.query.sqlSnippet.SqlSnippet;
+import mybatis.frame.injector.query.sqlSnippet.WhereSqlSnippet;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
@@ -58,18 +59,19 @@ public class QuerySqlWrapper<T> extends AbsSqlWrapper<T, SFuntion<T, ?>, QuerySq
     public String getSqlWrapper() {
         SqlSnippetManager listManager = super.getListManager();
         StringBuilder sqlWrapper = new StringBuilder();
-        this.splicingSql(listManager.getSqlWhereSnippetList(), sqlWrapper);
-        this.splicingSql(listManager.getSqlHavingSnippetList(), sqlWrapper);
+        this.splicingSqlWhere(listManager.getSqlWhereSnippetList(), sqlWrapper);
+//        this.splicingSql(listManager.getSqlHavingSnippetList(), sqlWrapper);
         super.delList();
         return sqlWrapper.toString();
     }
 
-    private void splicingSql(List<SqlSnippet> list, StringBuilder sb) {
+    private void splicingSqlWhere(List<SqlSnippet> list, StringBuilder sb) {
         //TODO:改 如何将sql拼接在一起  where系列 用 and，group用 ，分隔
         if (!list.isEmpty()) {
-            list.forEach(v -> sb.append(v.getSqlField())
-                    .append(v.getKeyword())
-                    .append(v.getJavaValue()));
+            list.forEach(v -> {
+                WhereSqlSnippet v1 = (WhereSqlSnippet) v;
+
+            });
         }
     }
 }

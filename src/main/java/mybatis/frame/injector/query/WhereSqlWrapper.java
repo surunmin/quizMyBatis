@@ -1,5 +1,7 @@
 package mybatis.frame.injector.query;
 
+import mybatis.frame.injector.query.sqlSnippet.SqlSnippet;
+
 import java.util.ArrayList;
 import java.util.List;
 

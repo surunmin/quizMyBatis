@@ -1,17 +1,17 @@
-package mybatis.frame.injector.query;
+package mybatis.frame.injector.query.sqlSnippet;
 
 import lombok.Data;
 
 /**
- * sql片段存储
+ * 一些声明信息
  * Description: <br/>
- * date: 2021/3/9 21:41<br/>
+ * date: 2021/3/13 1:04<br/>
  *
  * @author zuo<br />
  * @since JDK 1.8
  */
 @Data
-public class SqlSnippet {
+public class WhereSqlSnippet implements SqlSnippet {
 
     private String sqlField;
 

@@ -2,6 +2,9 @@ package mybatis.frame.injector.query;
 
 
 
+import mybatis.frame.injector.query.sqlSnippet.SqlSnippet;
+import mybatis.frame.injector.query.sqlSnippet.WhereSqlSnippet;
+
 import java.util.List;
 
 /**
@@ -31,16 +34,16 @@ public abstract class AbsSqlWrapper<T, ColumnType, Children extends AbsSqlWrappe
 
     @SuppressWarnings(value = "All")
     private Children addCondition(ColumnType columnType, MyBatisKeyword myBatisKeyword, Object value) {
-        SqlSnippet sqlSnippet = new SqlSnippet();
-        sqlSnippet.setJavaValue(value);
-        sqlSnippet.setKeyword(myBatisKeyword.getSqlField());
-        sqlSnippet.setSqlField(this.getKeyword(columnType));
         switch (myBatisKeyword.getType()) {
             case WHERE:
+                WhereSqlSnippet sqlSnippet = new WhereSqlSnippet();
+                sqlSnippet.setJavaValue(value);
+                sqlSnippet.setKeyword(myBatisKeyword.getSqlField());
+                sqlSnippet.setSqlField(this.getKeyword(columnType));
                 WhereSqlWrapper.super.addList(sqlSnippet);
                 break;
             case HAVING:
-                HavingSqlWrapper.super.addList(sqlSnippet);
+//                HavingSqlWrapper.super.addList(sqlSnippet);
                 break;
             case GROUP_BY:
             case ORDER_BY:

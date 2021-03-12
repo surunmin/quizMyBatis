@@ -1,6 +1,7 @@
 package mybatis.frame.injector.query;
 
 import lombok.Data;
+import mybatis.frame.injector.query.sqlSnippet.SqlSnippet;
 
 import java.util.List;
 
