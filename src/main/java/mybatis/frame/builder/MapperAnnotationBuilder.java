@@ -110,9 +110,9 @@ public class MapperAnnotationBuilder extends org.apache.ibatis.builder.annotatio
                                     list.add(Class.forName(type1.getTypeName()));
                                 }
 
-                                String typeName = types.get(0).getTypeName();
+                                Class<?> aClass = (Class<?>) types.get(0);
                                 //转化的泛型
-                                Class<?> aClass = Class.forName(typeName);
+
                                 TableInfo tableInfo = this.getTableInfo(aClass);
 
                                 //TODO:设置resultMaps
