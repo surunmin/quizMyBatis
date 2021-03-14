@@ -18,7 +18,6 @@ public class DeleteOne extends AbstractMethod {
     @Override
     public MappedStatement injectMappedStatement(Class<?> mapperClass, TableInfo tableInfo) throws Exception {
         SqlMethodEnums sqlMethod = SqlMethodEnums.DELETE_ONE;
-        //TODO:需要修改  自定义名称
         String sql = String.format(sqlMethod.getSql(),
                 tableInfo.getTableName(),
                 tableInfo.getPerKey().getColumnName(),

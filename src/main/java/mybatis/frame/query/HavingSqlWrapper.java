@@ -1,12 +1,13 @@
-package mybatis.frame.injector.query;
+package mybatis.frame.query;
 
-import mybatis.frame.injector.query.sqlSnippet.SqlSnippet;
+import mybatis.frame.query.sqlSnippet.SqlSnippet;
 
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
- * 一些声明信息
+ * 用于不需要 指定数据库字段的SQL语句
  * Description: <br/>
  * date: 2021/3/9 23:00<br/>
  *
@@ -29,5 +30,6 @@ public interface HavingSqlWrapper<Children,ColumnType> {
         sqlHavingSnippetList.clear();
     }
 
+    Children limit(Integer start,Integer pageSize);
 
 }

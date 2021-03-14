@@ -1,6 +1,4 @@
-package mybatis.frame.injector.query.sqlSnippet;
-
-import lombok.Data;
+package mybatis.frame.query.sqlSnippet;
 
 /**
  * sql片段存储

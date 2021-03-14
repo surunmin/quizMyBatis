@@ -1,8 +1,9 @@
-package mybatis.frame.injector.query;
+package mybatis.frame.query;
 
-import mybatis.frame.injector.query.sqlSnippet.SqlSnippet;
+import mybatis.frame.query.sqlSnippet.SqlSnippet;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -17,7 +18,9 @@ public interface WhereSqlWrapper<Children,ColumnType> {
 
     List<SqlSnippet> sqlWhereSnippetList = new ArrayList<>();
 
-    Children eq(ColumnType columnType, Object value) ;
+    Children eq(ColumnType columnType, Object value);
+
+    Children in(ColumnType columnType, Collection<?> value);
 
     default List<SqlSnippet> getList() {
         return this.sqlWhereSnippetList;

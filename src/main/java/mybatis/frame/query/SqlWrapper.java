@@ -1,4 +1,4 @@
-package mybatis.frame.injector.query;
+package mybatis.frame.query;
 
 public interface SqlWrapper {
 

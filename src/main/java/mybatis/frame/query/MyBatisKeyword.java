@@ -1,4 +1,4 @@
-package mybatis.frame.injector.query;
+package mybatis.frame.query;
 
 import lombok.Getter;
 
@@ -14,7 +14,9 @@ import lombok.Getter;
 @Getter
 public enum MyBatisKeyword {
 
-    EQ("=",SqlType.WHERE);
+    EQ("%s = %s",SqlType.WHERE),
+    IN("%s in (%s)",SqlType.WHERE),
+    LIMIT("limit (%s)",SqlType.HAVING);
 
     private final String sqlField;
     private final SqlType type;

@@ -1,6 +1,6 @@
 package mybatis.frame;
 
-import mybatis.frame.injector.query.QuerySqlWrapper;
+import mybatis.frame.query.QuerySqlWrapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

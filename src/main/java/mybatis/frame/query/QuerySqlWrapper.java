@@ -1,10 +1,12 @@
-package mybatis.frame.injector.query;
+package mybatis.frame.query;
 
 import lombok.extern.slf4j.Slf4j;
 import mybatis.frame.annotations.Column;
 import mybatis.frame.function.SFuntion;
-import mybatis.frame.injector.query.sqlSnippet.SqlSnippet;
-import mybatis.frame.injector.query.sqlSnippet.WhereSqlSnippet;
+import mybatis.frame.query.sqlSnippet.HavingSqlSnippet;
+import mybatis.frame.query.sqlSnippet.SqlSnippet;
+import mybatis.frame.query.sqlSnippet.WhereSqlSnippet;
+import mybatis.frame.util.MyBatisStringPool;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
@@ -60,18 +62,30 @@ public class QuerySqlWrapper<T> extends AbsSqlWrapper<T, SFuntion<T, ?>, QuerySq
         SqlSnippetManager listManager = super.getListManager();
         StringBuilder sqlWrapper = new StringBuilder();
         this.splicingSqlWhere(listManager.getSqlWhereSnippetList(), sqlWrapper);
-//        this.splicingSql(listManager.getSqlHavingSnippetList(), sqlWrapper);
+        this.splicingSqlHaving(listManager.getSqlHavingSnippetList(), sqlWrapper);
         super.delList();
         return sqlWrapper.toString();
     }
 
     private void splicingSqlWhere(List<SqlSnippet> list, StringBuilder sb) {
-        //TODO:改 如何将sql拼接在一起  where系列 用 and，group用 ，分隔
         if (!list.isEmpty()) {
             list.forEach(v -> {
                 WhereSqlSnippet v1 = (WhereSqlSnippet) v;
+                sb.append(String.format(v1.getKeyword(), v1.getSqlField(), v1.getJavaValue()));
+                sb.append(MyBatisStringPool.WRAP.getType()).append(MyBatisStringPool.AND.getType());
+            });
+            sb.replace(sb.length() - 4, sb.length(), MyBatisStringPool.SPACE.getType());
+        }
+    }
 
+    private void splicingSqlHaving(List<SqlSnippet> list, StringBuilder sb) {
+        if (!list.isEmpty()) {
+            list.forEach(v -> {
+                HavingSqlSnippet v1 = (HavingSqlSnippet) v;
+                sb.append(String.format(v1.getKeyword(), v1.getValue()));
+                sb.append(MyBatisStringPool.SPACE.getType()).append(MyBatisStringPool.E_COMMA.getType());
             });
         }
+        sb.replace(sb.length() - 1, sb.length(), MyBatisStringPool.SPACE.getType());
     }
 }

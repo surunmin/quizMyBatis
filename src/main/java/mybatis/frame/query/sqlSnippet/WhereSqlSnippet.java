@@ -1,4 +1,4 @@
-package mybatis.frame.injector.query.sqlSnippet;
+package mybatis.frame.query.sqlSnippet;
 
 import lombok.Data;
 
