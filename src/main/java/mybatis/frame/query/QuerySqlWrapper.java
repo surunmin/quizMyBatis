@@ -72,10 +72,12 @@ public class QuerySqlWrapper<T> extends AbsSqlWrapper<T, SFuntion<T, ?>, QuerySq
             list.forEach(v -> {
                 WhereSqlSnippet v1 = (WhereSqlSnippet) v;
                 sb.append(String.format(v1.getKeyword(), v1.getSqlField(), v1.getJavaValue()));
-                sb.append(MyBatisStringPool.WRAP.getType()).append(MyBatisStringPool.AND.getType());
+                sb.append(MyBatisStringPool.WRAP.getType())
+                        .append(MyBatisStringPool.AND.getType())
+                        .append(MyBatisStringPool.WRAP.getType());
             });
-            sb.replace(sb.length() - 4, sb.length(), MyBatisStringPool.SPACE.getType());
         }
+        sb.replace(sb.length() - 4, sb.length(), MyBatisStringPool.SPACE.getType());
     }
 
     private void splicingSqlHaving(List<SqlSnippet> list, StringBuilder sb) {
