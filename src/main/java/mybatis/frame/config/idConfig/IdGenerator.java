@@ -14,11 +14,11 @@ public interface IdGenerator {
      * 生成一个主键Id（Long）
      * @return 主键Id
      */
-    long getPrimaryKeyIdLong();
+    long lCreatorId();
 
     /**
      * 生成一个主键Id（String）
      * @return
      */
-    String getPrimaryKeyIdString();
+    String sCreatorId();
 }

@@ -16,7 +16,7 @@ public enum MyBatisKeyword {
 
     EQ("%s = %s",SqlType.WHERE),
     IN("%s in (%s)",SqlType.WHERE),
-    LIMIT("limit (%s)",SqlType.HAVING);
+    LIMIT("limit %s",SqlType.HAVING);
 
     private final String sqlField;
     private final SqlType type;

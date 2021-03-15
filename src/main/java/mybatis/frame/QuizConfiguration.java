@@ -24,7 +24,7 @@ public class QuizConfiguration extends Configuration {
 
     protected final Set<String> quizLoadedResources = new HashSet<>();
 
-    private boolean useDeprecatedExecutor = true;
+    private final boolean useDeprecatedExecutor = true;
 
     public QuizConfiguration() {
         this.quizMapperRegistry = new QuizMapperRegistry(this);

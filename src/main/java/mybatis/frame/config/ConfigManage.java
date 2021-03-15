@@ -1,11 +1,13 @@
 package mybatis.frame.config;
 
 import lombok.Data;
+import mybatis.frame.QuizConfiguration;
 import mybatis.frame.config.idConfig.IdGenerator;
 import mybatis.frame.injector.DefaultSqlInjector;
 import mybatis.frame.injector.SqlInjector;
 import org.apache.ibatis.executor.keygen.KeyGenerator;
 import org.apache.ibatis.executor.keygen.NoKeyGenerator;
+import org.apache.ibatis.session.Configuration;
 
 
 /**
@@ -58,4 +60,14 @@ public class ConfigManage {
      * 对主键的默认实现
      */
     private KeyGenerator keyGenerator = new NoKeyGenerator();
+
+    /**
+     *  类路径
+     */
+    private String classEntity;
+
+    /**
+     * 配置数据
+     */
+    private Configuration configuration = new QuizConfiguration();
 }

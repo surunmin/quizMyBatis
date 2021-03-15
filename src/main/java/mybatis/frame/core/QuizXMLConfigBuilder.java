@@ -39,24 +39,8 @@ public class QuizXMLConfigBuilder extends BaseBuilder {
     private String environment;
     private final ReflectorFactory localReflectorFactory = new DefaultReflectorFactory();
 
-    public QuizXMLConfigBuilder(Reader reader) {
-        this(reader, null, null);
-    }
-
-    public QuizXMLConfigBuilder(Reader reader, String environment) {
-        this(reader, environment, null);
-    }
-
     public QuizXMLConfigBuilder(Reader reader, String environment, Properties props) {
         this(new XPathParser(reader, true, props, new XMLMapperEntityResolver()), environment, props);
-    }
-
-    public QuizXMLConfigBuilder(InputStream inputStream) {
-        this(inputStream, null, null);
-    }
-
-    public QuizXMLConfigBuilder(InputStream inputStream, String environment) {
-        this(inputStream, environment, null);
     }
 
     public QuizXMLConfigBuilder(InputStream inputStream, String environment, Properties props) {
@@ -236,7 +220,6 @@ public class QuizXMLConfigBuilder extends BaseBuilder {
         configuration.setDefaultStatementTimeout(integerValueOf(props.getProperty("defaultStatementTimeout"), null));
         configuration.setDefaultFetchSize(integerValueOf(props.getProperty("defaultFetchSize"), null));
         configuration.setDefaultResultSetType(resolveResultSetType(props.getProperty("defaultResultSetType")));
-        // TODO 统一 mapUnderscoreToCamelCase 属性默认值为 true
         configuration.setMapUnderscoreToCamelCase(booleanValueOf(props.getProperty("mapUnderscoreToCamelCase"), true));
         configuration.setSafeRowBoundsEnabled(booleanValueOf(props.getProperty("safeRowBoundsEnabled"), false));
         configuration.setLocalCacheScope(LocalCacheScope.valueOf(props.getProperty("localCacheScope", "SESSION")));

@@ -8,9 +8,9 @@ import mybatis.frame.annotations.PrimaryKey;
 import mybatis.frame.annotations.Table;
 import mybatis.frame.comment.ColumnInfo;
 import mybatis.frame.comment.TableInfo;
+import mybatis.frame.config.ConfigManage;
 import mybatis.frame.exception.QuizMyBatisException;
-import mybatis.frame.injector.DefaultSqlInjector;
-import mybatis.frame.injector.SqlInjectorImpl;
+import mybatis.frame.injector.SqlInjector;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.builder.BuilderException;
@@ -61,7 +61,7 @@ public class MapperAnnotationBuilder extends org.apache.ibatis.builder.annotatio
      */
     private final Class<?> type;
 
-    private SqlInjectorImpl sqlInjector = new DefaultSqlInjector();
+    private final SqlInjector sqlInjector = ConfigManage.getInstance().getSqlInjector();
 
     public MapperAnnotationBuilder(Configuration configuration, Class<?> type) {
         super(configuration, type);

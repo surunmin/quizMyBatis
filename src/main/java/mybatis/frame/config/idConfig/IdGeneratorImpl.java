@@ -18,10 +18,6 @@ import java.util.Calendar;
 public class IdGeneratorImpl implements IdGenerator {
 
     /**
-     * 开始时间截 (2015-01-01)
-     */
-    private final long twepoch = 1420041600000L;
-    /**
      * 机器id所占的位数
      */
     private final long workerIdBits = 5L;
@@ -37,26 +33,6 @@ public class IdGeneratorImpl implements IdGenerator {
      * 支持的最大数据标识id，结果是31
      */
     private final long maxDatacenterId = ~(-1L << datacenterIdBits);
-    /**
-     * 序列在id中占的位数
-     */
-    private final long sequenceBits = 12L;
-    /**
-     * 机器ID向左移12位
-     */
-    private final long workerIdShift = sequenceBits;
-    /**
-     * 数据标识id向左移17位(12+5)
-     */
-    private final long datacenterIdShift = sequenceBits + workerIdBits;
-    /**
-     * 时间截向左移22位(5+5+12)
-     */
-    private final long timestampLeftShift = sequenceBits + workerIdBits + datacenterIdBits;
-    /**
-     * 生成序列的掩码，这里为4095 (0b111111111111=0xfff=4095)
-     */
-    private final long sequenceMask = ~(-1L << sequenceBits);
     /**
      * 工作机器ID(0~31)
      */
@@ -76,9 +52,11 @@ public class IdGeneratorImpl implements IdGenerator {
 
     /**
      * 获得下一个ID (该方法是线程安全的)
+     *
      * @return SnowflakeId
      */
-    public synchronized long getPrimaryKeyIdLong() {
+    @Override
+    public synchronized long lCreatorId() {
         long timestamp = timeGen();
         // 如果当前时间小于上一次ID生成的时间戳，说明系统时钟回退过这个时候应当抛出异常
         if (timestamp < lastTimestamp) {
@@ -86,7 +64,10 @@ public class IdGeneratorImpl implements IdGenerator {
                     String.format("Clock moved backwards.  Refusing to generate id for %d milliseconds", lastTimestamp - timestamp));
         }
         // 如果是同一时间生成的，则进行毫秒内序列
+        //序列在id中占的位数
+        long sequenceBits = 12L;
         if (lastTimestamp == timestamp) {
+            long sequenceMask = ~(-1L << sequenceBits);
             sequence = (sequence + 1) & sequenceMask;
             // 毫秒内序列溢出
             if (sequence == 0) {
@@ -101,13 +82,22 @@ public class IdGeneratorImpl implements IdGenerator {
         // 上次生成ID的时间截
         lastTimestamp = timestamp;
         // 移位并通过或运算拼到一起组成64位的ID
+        //时间截向左移22位(5+5+12)
+        long timestampLeftShift = sequenceBits + workerIdBits + datacenterIdBits;
+        //数据标识id向左移17位(12+5)
+        long datacenterIdShift = sequenceBits + workerIdBits;
+        //机器ID向左移12位
+        //开始时间截 (2015-01-01)
+        long twepoch = 1420041600000L;
         return ((timestamp - twepoch) << timestampLeftShift) //
                 | (datacenterId << datacenterIdShift) //
-                | (workerId << workerIdShift) //
+                | (workerId << sequenceBits) //
                 | sequence;
     }
+
     /**
      * 阻塞到下一个毫秒，直到获得新的时间戳
+     *
      * @param lastTimestamp 上次生成ID的时间截
      * @return 当前时间戳
      */
@@ -118,8 +108,10 @@ public class IdGeneratorImpl implements IdGenerator {
         }
         return timestamp;
     }
+
     /**
      * 返回以毫秒为单位的当前时间
+     *
      * @return 当前时间(毫秒)
      */
     protected long timeGen() {
@@ -127,7 +119,7 @@ public class IdGeneratorImpl implements IdGenerator {
     }
 
     @Override
-    public String getPrimaryKeyIdString() {
-        return String.valueOf(getPrimaryKeyIdLong());
+    public String sCreatorId() {
+        return String.valueOf(lCreatorId());
     }
 }
