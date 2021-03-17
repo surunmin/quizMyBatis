@@ -23,7 +23,8 @@ public class DefaultSqlInjector extends SqlInjectorImpl {
                 new InsertOne(),
                 new DeleteOne(),
                 new UpdateOne(),
-                new SelectList()
+                new SelectList(),
+                new Count()
         ).collect(Collectors.toList());
     }
 }

@@ -40,6 +40,11 @@ public abstract class AbsSqlWrapper<T, ColumnType, Children extends AbsSqlWrappe
     }
 
     @Override
+    public Children like(ColumnType columnType, Object value) {
+        return this.addCondition(columnType,MyBatisKeyword.LIKE,value);
+    }
+
+    @Override
     public List<SqlSnippet> getList() {
         return null;
     }

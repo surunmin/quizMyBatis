@@ -31,4 +31,6 @@ public interface MapperTop<P,V> {
     Integer deleteOne(V v);
 
     List<P> selectList(@Param("sqlWrapper") QuerySqlWrapper<P> querySqlWrapper);
+
+    Integer count(@Param("sqlWrapper") QuerySqlWrapper<P> querySqlWrapper);
 }

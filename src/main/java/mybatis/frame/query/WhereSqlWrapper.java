@@ -22,6 +22,8 @@ public interface WhereSqlWrapper<Children,ColumnType> {
 
     Children in(ColumnType columnType, Collection<?> value);
 
+    Children like(ColumnType columnType,Object value);
+
     default List<SqlSnippet> getList() {
         return this.sqlWhereSnippetList;
     }
