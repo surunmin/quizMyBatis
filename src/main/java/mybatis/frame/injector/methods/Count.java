@@ -19,12 +19,12 @@ public class Count extends AbstractMethod {
     @Override
     public MappedStatement injectMappedStatement(Class<?> mapperClass, TableInfo tableInfo) throws Exception {
         SqlMethodEnums count = SqlMethodEnums.COUNT;
-        String sql = String.format(count.getSql(),tableInfo.getTableName(),tableInfo.convertIf(MyBatisStringPool.SQL_WRAPPER.getType() +
+        String sql = String.format(count.getSql(), tableInfo.getTableName(), tableInfo.convertIf(MyBatisStringPool.SQL_WRAPPER.getType() +
                 MyBatisStringPool.SPACE.getType() + MyBatisStringPool.NOT_NULL.getType(), () -> {
             StringBuilder sb = new StringBuilder();
             sb.append(tableInfo.convertWhere(() -> {
                 StringBuilder sb1 = new StringBuilder();
-                sb1.append(tableInfo.convertIf(MyBatisStringPool.SQL_WRAPPER.getType() + MyBatisStringPool.NOT_NULL.getType(),() -> {
+                sb1.append(tableInfo.convertIf(MyBatisStringPool.SQL_WRAPPER.getType() + MyBatisStringPool.NOT_NULL.getType(), () -> {
                     StringBuilder sb2 = new StringBuilder();
                     sb2.append(MyBatisStringPool.USD.getType());
                     sb2.append(MyBatisStringPool.LEFT_BRACE.getType());
@@ -39,6 +39,6 @@ public class Count extends AbstractMethod {
             return sb;
         }));
         SqlSource sqlSource = this.languageDriver.createSqlSource(this.configuration, sql, Object.class);
-        return this.addSelectMappedStatement(mapperClass,count.getMethod(),sqlSource,tableInfo,Integer.class.getName());
+        return this.addSelectMappedStatement(mapperClass, count.getMethod(), sqlSource, tableInfo, Integer.class.getName());
     }
 }

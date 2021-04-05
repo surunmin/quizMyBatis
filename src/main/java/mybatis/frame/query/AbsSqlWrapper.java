@@ -1,7 +1,6 @@
 package mybatis.frame.query;
 
 
-
 import mybatis.frame.exception.QuizMyBatisException;
 import mybatis.frame.query.sqlSnippet.HavingSqlSnippet;
 import mybatis.frame.query.sqlSnippet.SqlSnippet;
@@ -9,7 +8,9 @@ import mybatis.frame.query.sqlSnippet.WhereSqlSnippet;
 import mybatis.frame.util.MyBatisStringPool;
 import org.apache.commons.lang3.StringUtils;
 
+import java.text.SimpleDateFormat;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,7 +23,7 @@ import java.util.List;
  */
 @SuppressWarnings("all")
 public abstract class AbsSqlWrapper<T, ColumnType, Children extends AbsSqlWrapper<T, ColumnType, Children>>
-        implements WhereSqlWrapper<Children, ColumnType>,HavingSqlWrapper<Children, ColumnType> {
+        implements WhereSqlWrapper<Children, ColumnType>, HavingSqlWrapper<Children, ColumnType> {
 
     public Children eq(ColumnType columnType, Object value) {
         return this.addCondition(columnType, MyBatisKeyword.EQ, value);
@@ -30,18 +31,27 @@ public abstract class AbsSqlWrapper<T, ColumnType, Children extends AbsSqlWrappe
 
     @Override
     public Children in(ColumnType columnType, Collection<?> value) {
-        return this.addCondition(columnType,MyBatisKeyword.IN,StringUtils.join((Collection)value, MyBatisStringPool.E_COMMA.getType()));
+        return this.addCondition(columnType, MyBatisKeyword.IN, StringUtils.join((Collection) value, MyBatisStringPool.E_COMMA.getType()));
     }
 
     @Override
     public Children limit(Integer start, Integer pageSize) {
         Object value = start + MyBatisStringPool.E_COMMA.getType() + pageSize;
-        return this.addCondition(null,MyBatisKeyword.LIMIT,value);
+        return this.addCondition(null, MyBatisKeyword.LIMIT, value);
     }
 
     @Override
     public Children like(ColumnType columnType, Object value) {
-        return this.addCondition(columnType,MyBatisKeyword.LIKE,value);
+        return this.addCondition(columnType, MyBatisKeyword.LIKE, value);
+    }
+
+    @Override
+    public Children between(ColumnType columnType, Date d1, Date d2) {
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String value = MyBatisStringPool.APOSTROPHE.getType() +  df.format(d1) +  MyBatisStringPool.APOSTROPHE.getType()
+                + MyBatisStringPool.AND.getType() +  MyBatisStringPool.APOSTROPHE.getType() + df.format(d2) +
+                MyBatisStringPool.APOSTROPHE.getType();
+        return this.addCondition(columnType, MyBatisKeyword.BETWEEN, value);
     }
 
     @Override

@@ -4,6 +4,7 @@ import mybatis.frame.query.sqlSnippet.SqlSnippet;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -23,6 +24,8 @@ public interface WhereSqlWrapper<Children,ColumnType> {
     Children in(ColumnType columnType, Collection<?> value);
 
     Children like(ColumnType columnType,Object value);
+
+    Children between(ColumnType columnType, Date d1 ,Date d2);
 
     default List<SqlSnippet> getList() {
         return this.sqlWhereSnippetList;

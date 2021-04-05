@@ -14,7 +14,7 @@ public enum MyBatisStringPool {
     E_RIGHT_BRACKETS(")","英文右括号"),
 
     SPACE(" ","空格"),
-    AND("and","和"),
+    AND(" and ","和"),
     SINGLE_QUOTE("\"","单引号"),
     WRAP("\n","换行"),
     SLASH("/","斜杠"),
@@ -34,7 +34,8 @@ public enum MyBatisStringPool {
     VALUES("values","mysql 预留字段"),
     SCRIPT("script","mybatis字段 script"),
     POINT(".","点"),
-    SQL_WRAPPER("sqlWrapper","自定义填充类型")
+    SQL_WRAPPER("sqlWrapper","自定义填充类型"),
+    APOSTROPHE("'","单引号")
     ;
 
     private final String type;

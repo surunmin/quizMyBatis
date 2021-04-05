@@ -77,7 +77,7 @@ public class QuerySqlWrapper<T> extends AbsSqlWrapper<T, SFuntion<T, ?>, QuerySq
                         .append(MyBatisStringPool.WRAP.getType());
             });
         }
-        sb.replace(sb.length() - 4, sb.length(), MyBatisStringPool.SPACE.getType());
+        sb.replace(sb.length() - 5, sb.length(), MyBatisStringPool.SPACE.getType());
     }
 
     private void splicingSqlHaving(List<SqlSnippet> list, StringBuilder sb) {
