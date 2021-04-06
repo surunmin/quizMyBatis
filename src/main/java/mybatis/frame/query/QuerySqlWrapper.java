@@ -76,8 +76,9 @@ public class QuerySqlWrapper<T> extends AbsSqlWrapper<T, SFuntion<T, ?>, QuerySq
                         .append(MyBatisStringPool.AND.getType())
                         .append(MyBatisStringPool.WRAP.getType());
             });
+            sb.replace(sb.length() - 5, sb.length(), MyBatisStringPool.SPACE.getType());
         }
-        sb.replace(sb.length() - 5, sb.length(), MyBatisStringPool.SPACE.getType());
+
     }
 
     private void splicingSqlHaving(List<SqlSnippet> list, StringBuilder sb) {
@@ -87,7 +88,8 @@ public class QuerySqlWrapper<T> extends AbsSqlWrapper<T, SFuntion<T, ?>, QuerySq
                 sb.append(String.format(v1.getKeyword(), v1.getValue()));
                 sb.append(MyBatisStringPool.SPACE.getType()).append(MyBatisStringPool.E_COMMA.getType());
             });
+            sb.replace(sb.length() - 1, sb.length(), MyBatisStringPool.SPACE.getType());
         }
-        sb.replace(sb.length() - 1, sb.length(), MyBatisStringPool.SPACE.getType());
+
     }
 }
