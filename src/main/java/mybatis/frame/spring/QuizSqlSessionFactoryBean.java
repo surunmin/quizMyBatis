@@ -25,6 +25,7 @@ import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.transaction.SpringManagedTransactionFactory;
 import org.springframework.beans.factory.FactoryBean;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -35,6 +36,7 @@ import org.springframework.core.io.support.ResourcePatternResolver;
 import org.springframework.core.type.ClassMetadata;
 import org.springframework.core.type.classreading.CachingMetadataReaderFactory;
 import org.springframework.core.type.classreading.MetadataReaderFactory;
+import org.springframework.stereotype.Component;
 import org.springframework.util.ClassUtils;
 
 import javax.sql.DataSource;
@@ -61,7 +63,8 @@ import static org.springframework.util.StringUtils.tokenizeToStringArray;
  */
 @Slf4j
 @Data
-public class QuizSqlSessionFactoryBean implements FactoryBean<SqlSessionFactory>, InitializingBean, ApplicationListener<ApplicationEvent> {
+public class QuizSqlSessionFactoryBean implements FactoryBean<SqlSessionFactory>,
+        InitializingBean, ApplicationListener<ApplicationEvent> {
 
     private Resource configLocation;
 
