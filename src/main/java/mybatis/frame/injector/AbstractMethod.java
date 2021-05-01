@@ -51,7 +51,6 @@ public abstract class AbstractMethod {
      * 注入自定义 MappedStatement
      *
      * @param mapperClass mapper 接口
-     * @param modelClass  mapper 泛型
      * @param tableInfo   数据库表反射信息
      * @return MappedStatement
      */
@@ -59,8 +58,7 @@ public abstract class AbstractMethod {
 
     /**
      * 获取所有表信息
-     *
-     * @param tableInfo
+     * @param tableInfo 表信息
      * @return
      */
     protected String sqlSelectColumns(TableInfo tableInfo) throws Exception {
@@ -72,7 +70,6 @@ public abstract class AbstractMethod {
      *
      * @param id          mapper管理器唯一标识
      * @param mapperClass 对应实体类
-     * @param sqlSource
      * @param table       表属性
      * @return mapper管理器
      */
@@ -123,14 +120,6 @@ public abstract class AbstractMethod {
      * 将sql方法添加到mapper管理器中
      * @param mapperClass 实体类
      * @param id 唯一标识
-     * @param keyColumn
-     * @param keyGenerator
-     * @param keyProperty
-     * @param parameterType
-     * @param resultMap
-     * @param resultType
-     * @param sqlCommandType
-     * @param sqlSource
      * @return
      */
     protected MappedStatement addMappedStatement(Class<?> mapperClass, String id, SqlSource sqlSource,

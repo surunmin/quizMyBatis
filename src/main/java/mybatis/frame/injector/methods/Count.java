@@ -39,6 +39,7 @@ public class Count extends AbstractMethod {
             return sb;
         }));
         SqlSource sqlSource = this.languageDriver.createSqlSource(this.configuration, sql, Object.class);
-        return this.addSelectMappedStatement(mapperClass, count.getMethod(), sqlSource, tableInfo, Integer.class.getName());
+        tableInfo.setEntityType(Integer.class);
+        return this.addSelectMappedStatement(mapperClass, count.getMethod(), sqlSource, tableInfo, null);
     }
 }

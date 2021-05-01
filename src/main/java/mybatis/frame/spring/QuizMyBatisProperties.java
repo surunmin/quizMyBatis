@@ -28,7 +28,6 @@ import java.util.Properties;
  * @since JDK 1.8
  */
 @Data
-@Component
 @ConfigurationProperties(prefix = "quiz.mybatis.config")
 public class QuizMyBatisProperties {
     private Resource configLocation;
