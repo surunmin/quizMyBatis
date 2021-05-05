@@ -65,6 +65,7 @@ public class MapperAnnotationBuilder extends org.apache.ibatis.builder.annotatio
 
     public MapperAnnotationBuilder(Configuration configuration, Class<?> type) {
         super(configuration, type);
+        //需要转化为指定的类型
         String resource = type.getName().replace('.', '/') + ".java (best guess)";
         this.myAssistant = new MapperBuilderAssistant(configuration, resource);
         this.type = type;
