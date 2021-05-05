@@ -4,7 +4,8 @@
 
 
 #### 如何使用
-代码与spring进行关联
+如何使用</br>
+在SpringBoot中使用@Bean注入方式
 ```java
 @Configuration
 public class BeanConfig { 
@@ -18,13 +19,7 @@ public class BeanConfig {
          QuizConfiguration quizConfiguration = new QuizConfiguration();
          quizConfiguration.setMapUnderscoreToCamelCase(true);
          quizSqlSessionFactoryBean.setQuizConfiguration(quizConfiguration);
-    
          return quizSqlSessionFactoryBean.getObject();
      } 
 }
-```
-
-
-```java
-
 ```
