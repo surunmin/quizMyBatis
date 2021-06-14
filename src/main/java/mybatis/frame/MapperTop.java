@@ -10,9 +10,9 @@ import java.util.List;
  * Description: 用来集中处理MyBatis中的Mapper
  *              <p>P</p>为 Pojo类
  *              <p>V</p>为主键类型
- * date: 2020/10/17 14:09<br/>
+ * date: 2020/10/17 14:09 
  *
- * @author zuo<br />
+ * @author zuo  
  * @since JDK 1.8
  */
 public interface MapperTop<P,V> {

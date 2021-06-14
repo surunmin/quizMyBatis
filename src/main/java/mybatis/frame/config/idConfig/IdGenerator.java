@@ -2,10 +2,10 @@ package mybatis.frame.config.idConfig;
 
 /**
  * Id生成器
- * Description: <br/>
- * date: 2020/12/27 11:29<br/>
+ * Description:  
+ * date: 2020/12/27 11:29 
  *
- * @author zuo<br />
+ * @author zuo  
  * @since JDK 1.8
  */
 public interface IdGenerator {

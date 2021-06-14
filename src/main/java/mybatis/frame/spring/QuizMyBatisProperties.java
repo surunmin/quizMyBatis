@@ -21,10 +21,10 @@ import java.util.Properties;
 
 /**
  * mybatis 配置属性 于spring的properties
- * Description: <br/>
- * date: 2021/4/11 19:50<br/>
+ * Description:  
+ * date: 2021/4/11 19:50 
  *
- * @author zuo<br />
+ * @author zuo  
  * @since JDK 1.8
  */
 @Data

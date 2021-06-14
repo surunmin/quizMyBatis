@@ -5,10 +5,10 @@ import org.apache.ibatis.type.JdbcType;
 
 /**
  * MySQL重连
- * Description: <br/>
- * date: 2020/10/21 22:20<br/>
+ * Description:  
+ * date: 2020/10/21 22:20 
  *
- * @author zuo<br />
+ * @author zuo  
  * @since JDK 1.8
  */
 @Getter

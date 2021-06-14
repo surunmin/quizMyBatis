@@ -15,10 +15,10 @@ import java.util.Map;
 
 /**
  * 一些声明信息
- * Description: <br/>
- * date: 2021/2/20 15:56<br/>
+ * Description:  
+ * date: 2021/2/20 15:56 
  *
- * @author zuo<br />
+ * @author zuo  
  * @since JDK 1.8
  */
 public class QuizMapperProxy<T> implements InvocationHandler, Serializable {

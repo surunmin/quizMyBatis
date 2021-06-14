@@ -9,10 +9,10 @@ import java.util.List;
 
 /**
  * 一些声明信息
- * Description: <br/>
- * date: 2021/3/5 19:24<br/>
+ * Description:  
+ * date: 2021/3/5 19:24 
  *
- * @author zuo<br />
+ * @author zuo  
  * @since JDK 1.8
  */
 public interface WhereSqlWrapper<Children,ColumnType> {

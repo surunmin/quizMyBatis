@@ -6,10 +6,10 @@ import java.util.List;
 
 /**
  * SQL注入器
- * Description: <br/>
- * date: 2021/2/10 16:27<br/>
+ * Description:  
+ * date: 2021/2/10 16:27 
  *
- * @author zuo<br />
+ * @author zuo  
  * @since JDK 1.8
  */
 public interface SqlInjector {

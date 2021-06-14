@@ -7,10 +7,10 @@ import java.util.Calendar;
 
 /**
  * 雪花算法
- * Description: <br/>
- * date: 2020/12/27 12:02<br/>
+ * Description:  
+ * date: 2020/12/27 12:02 
  *
- * @author zuo<br />
+ * @author zuo  
  * @since JDK 1.8
  */
 @Component

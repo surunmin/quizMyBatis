@@ -6,10 +6,10 @@ import java.lang.reflect.Method;
 
 /**
  * 一些声明信息
- * Description: <br/>
- * date: 2021/3/6 17:12<br/>
+ * Description:  
+ * date: 2021/3/6 17:12 
  *
- * @author zuo<br />
+ * @author zuo  
  * @since JDK 1.8
  */
 @FunctionalInterface

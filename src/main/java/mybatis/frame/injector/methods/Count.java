@@ -9,10 +9,10 @@ import org.apache.ibatis.mapping.SqlSource;
 
 /**
  * 一些声明信息
- * Description: <br/>
- * date: 2021/3/17 21:19<br/>
+ * Description:  
+ * date: 2021/3/17 21:19 
  *
- * @author zuo<br />
+ * @author zuo  
  * @since JDK 1.8
  */
 public class Count extends AbstractMethod {

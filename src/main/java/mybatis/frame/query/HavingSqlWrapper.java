@@ -8,10 +8,10 @@ import java.util.List;
 
 /**
  * 用于不需要 指定数据库字段的SQL语句
- * Description: <br/>
- * date: 2021/3/9 23:00<br/>
+ * Description:  
+ * date: 2021/3/9 23:00 
  *
- * @author zuo<br />
+ * @author zuo  
  * @since JDK 1.8
  */
 public interface HavingSqlWrapper<Children,ColumnType> {

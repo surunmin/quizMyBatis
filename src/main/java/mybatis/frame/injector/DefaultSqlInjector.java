@@ -9,10 +9,10 @@ import java.util.stream.Stream;
 
 /**
  * 一些声明信息
- * Description: <br/>
- * date: 2021/2/13 16:04<br/>
+ * Description:  
+ * date: 2021/2/13 16:04 
  *
- * @author zuo<br />
+ * @author zuo  
  * @since JDK 1.8
  */
 public class DefaultSqlInjector extends SqlInjectorImpl {

@@ -4,10 +4,10 @@ import lombok.Getter;
 
 /**
  * 一些声明信息
- * Description: <br/>
- * date: 2021/3/9 22:40<br/>
+ * Description:  
+ * date: 2021/3/9 22:40 
  *
- * @author zuo<br />
+ * @author zuo  
  * @since JDK 1.8
  */
 @Getter

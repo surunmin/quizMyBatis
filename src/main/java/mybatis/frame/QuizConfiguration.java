@@ -10,10 +10,10 @@ import java.util.Set;
 
 /**
  * quizMybatis  配置类
- * Description: <br/>
- * date: 2021/2/13 16:16<br/>
+ * Description:  
+ * date: 2021/2/13 16:16 
  *
- * @author zuo<br />
+ * @author zuo  
  * @since JDK 1.8
  */
 @Slf4j

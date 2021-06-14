@@ -4,10 +4,10 @@ import lombok.Getter;
 
 /**
  * MyBatisException 异常处理
- * Description: <br/>
- * date: 2020/10/22 20:58<br/>
+ * Description:  
+ * date: 2020/10/22 20:58 
  *
- * @author zuo<br />
+ * @author zuo  
  * @since JDK 1.8
  */
 @Getter

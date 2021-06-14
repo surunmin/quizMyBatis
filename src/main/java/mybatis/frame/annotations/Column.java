@@ -9,10 +9,10 @@ import java.lang.annotation.Target;
 
 /**
  *  mybatis 字段声明
- * Description: <br/>
- * date: 2020/10/18 13:49<br/>
+ * Description:  
+ * date: 2020/10/18 13:49 
  *
- * @author zuo<br />
+ * @author zuo
  * @since JDK 1.8
  */
 @Retention(RetentionPolicy.RUNTIME)

@@ -7,10 +7,10 @@ import java.lang.annotation.Target;
 
 /**
  * 一些声明信息
- * Description: <br/>
- * date: 2020/10/17 15:12<br/>
+ * Description:  
+ * date: 2020/10/17 15:12 
  *
- * @author zuo<br />
+ * @author zuo  
  * @since JDK 1.8
  */
 @Retention(RetentionPolicy.RUNTIME)

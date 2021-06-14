@@ -14,10 +14,10 @@ import java.util.Map;
 
 /**
  * quiz框架自定义mapper注册器
- * Description: <br/>
- * date: 2021/2/9 9:37<br/>
+ * Description:  
+ * date: 2021/2/9 9:37 
  *
- * @author zuo<br />
+ * @author zuo  
  * @since JDK 1.8
  */
 @Slf4j

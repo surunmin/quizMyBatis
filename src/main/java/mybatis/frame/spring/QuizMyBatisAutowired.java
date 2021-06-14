@@ -22,10 +22,10 @@ import javax.sql.DataSource;
 
 /**
  * 此类作为默认类配置类
- * Description: <br/>
- * date: 2021/4/11 19:59<br/>
+ * Description:  
+ * date: 2021/4/11 19:59 
  *
- * @author zuo<br />
+ * @author zuo  
  * @since JDK 1.8
  */
 @Configurable

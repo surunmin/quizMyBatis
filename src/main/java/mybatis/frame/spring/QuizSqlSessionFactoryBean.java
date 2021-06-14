@@ -55,10 +55,10 @@ import static org.springframework.util.StringUtils.tokenizeToStringArray;
 
 /**
  * quiz框架的sqlSession工厂
- * Description: <br/>
- * date: 2021/2/20 20:05<br/>
+ * Description:  
+ * date: 2021/2/20 20:05 
  *
- * @author zuo<br />
+ * @author zuo  
  * @since JDK 1.8
  */
 @Slf4j

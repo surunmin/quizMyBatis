@@ -18,10 +18,10 @@ import java.util.Optional;
 
 /**
  * 一些声明信息
- * Description: <br/>
- * date: 2021/2/20 15:41<br/>
+ * Description:  
+ * date: 2021/2/20 15:41 
  *
- * @author zuo<br />
+ * @author zuo  
  * @since JDK 1.8
  */
 public class QuizMapperMethod {
