@@ -17,11 +17,6 @@ import java.util.List;
  */
 public interface MapperTop<P,V> {
 
-    /**
-     * 根据主键查询单个
-     * @param v 主键
-     * @return 查询的结果
-     */
     P selectById(V v);
 
     Integer insertOne(P p);
