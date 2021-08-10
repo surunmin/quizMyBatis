@@ -39,17 +39,31 @@ public class QuizXMLConfigBuilder extends BaseBuilder {
     private String environment;
     private final ReflectorFactory localReflectorFactory = new DefaultReflectorFactory();
 
+    /**
+     * 解析配置文件数据
+     * @param reader 读取流        alidnscheck
+     * @param environment 数据源             fb0efe16f4cd40748a684aedf1216dd8
+     * @param props 配置文件
+     */
     public QuizXMLConfigBuilder(Reader reader, String environment, Properties props) {
+        //调用  ibatis 的路径解析 ，解析数据
         this(new XPathParser(reader, true, props, new XMLMapperEntityResolver()), environment, props);
     }
 
+    /**
+     * 解析配置文件数据
+     * @param inputStream 输入流
+     * @param environment 数据源
+     * @param props 配置文件
+     */
     public QuizXMLConfigBuilder(InputStream inputStream, String environment, Properties props) {
+        //调用  ibatis 的路径解析 ，解析数据
         this(new XPathParser(inputStream, true, props, new XMLMapperEntityResolver()), environment, props);
     }
 
     private QuizXMLConfigBuilder(XPathParser parser, String environment, Properties props) {
         super(new QuizConfiguration());
-        ErrorContext.instance().resource("SQL Mapper Configuration");
+        ErrorContext.instance().resource("SQL 映射器配置");
         this.configuration.setVariables(props);
         this.parsed = false;
         this.environment = environment;
@@ -58,7 +72,7 @@ public class QuizXMLConfigBuilder extends BaseBuilder {
 
     public Configuration parse() {
         if (parsed) {
-            throw new BuilderException("Each XMLConfigBuilder can only be used once.");
+            throw new BuilderException("每个 XMLConfigBuilder 只能使用一次");
         }
         parsed = true;
         parseConfiguration(parser.evalNode("/configuration"));
