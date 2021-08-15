@@ -10,9 +10,9 @@
         <version>1.0.0</version>
     </parent>
 
-    <groupId>io.github.zuo-xie</groupId>
+    <groupId>icu.xiezuojing</groupId>
     <artifactId>quizMyBatis</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
 
     <name>quizMyBatis</name>
     <description>CWIKIUS-OSSEZ Java Tutorials For Algorithm And Learning</description>
